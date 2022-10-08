@@ -1,15 +1,6 @@
 const pickers = {
 	surname: document.getElementById('surname'),
 };
-
-function pickHandler (e) {
-	if(pickers.surname.value){
-	    if(pickers.surname.value.length>0){
-	    	Telegram.WebApp.MainButton.show()
-	    }
-	}
-}
-
 function sendData () {
     var data=""
     if(pickers.surname.value){
@@ -23,7 +14,7 @@ function init () {
 	Telegram.WebApp.MainButton
 		.setText('Cerca Docente')
 		.onClick(sendData)
+		.enable()
+		.show()
 }
-
-pickers.surname.addEventListener('change', pickHandler)
 document.addEventListener('DOMContentLoaded', init)
